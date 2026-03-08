@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Slider with Arrows</title>
+    <style>
+        /* Basic Styling for Container and Cards */
+        .card-container {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .card-wrapper {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .card {
+            width: 200px;
+            height: 200px;
+            margin: 10px;
+            background-color: lightgray;
+            border: 1px solid #ccc;
+            flex-shrink: 0;
+        }
+
+        /* Arrow Controls */
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 30px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        .arrow-left {
+            left: 10px;
+        }
+
+        .arrow-right {
+            right: 10px;
+        }
+
+        .arrow:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .card {
+                width: 150px;
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <br>
+
+
+    <h1>Trending Artists</h1>
+<div class="card-container">
+    <!-- Left Arrow -->
+    <div class="arrow arrow-left" id="prevBtn">&lt;</div>
+
+    <!-- Cards Wrapper -->
+    <div class="card-wrapper">
+        <!-- 12 cards -->
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+    </div>
+
+    <!-- Right Arrow -->
+    <div class="arrow arrow-right" id="nextBtn">&gt;</div>
+</div>
+
+
+<br>
+
+
+
+<h1>Popular Albums</h1>
+<div class="card-container">
+    <!-- Left Arrow -->
+    <div class="arrow arrow-left" id="prevBtn">&lt;</div>
+
+    <!-- Cards Wrapper -->
+    <div class="card-wrapper">
+        <!-- 12 cards -->
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+        <div class="card"></div>
+    </div>
+
+    <!-- Right Arrow -->
+    <div class="arrow arrow-right" id="nextBtn">&gt;</div>
+</div>
+
+<script>
+    const cardWrapper = document.querySelector('.card-wrapper');
+    const cards = document.querySelectorAll('.card');
+    const nextBtn = document.getElementById('nextBtn');
+    const prevBtn = document.getElementById('prevBtn');
+
+    // Settings
+    let cardWidth = cards[0].offsetWidth + 20; // width + margin
+    let cardsToShow = 4; // Now showing 4 cards at a time
+    let currentSlide = 0;
+
+    // Function to update the slide
+    function updateSlide() {
+        let maxSlide = cards.length - cardsToShow;
+        if (currentSlide < 0) {
+            currentSlide = 0;
+        } else if (currentSlide > maxSlide) {
+            currentSlide = maxSlide;
+        }
+        let offset = -(cardWidth * currentSlide);
+        cardWrapper.style.transform = `translateX(${offset}px)`;
+    }
+
+    // Next button functionality
+    nextBtn.addEventListener('click', function() {
+        currentSlide++;
+        updateSlide();
+    });
+
+    // Previous button functionality
+    prevBtn.addEventListener('click', function() {
+        currentSlide--;
+        updateSlide();
+    });
+
+    // Responsiveness - Adjust card width on window resize
+    window.addEventListener('resize', function() {
+        cardWidth = cards[0].offsetWidth + 20;
+        updateSlide();
+    });
+</script>
+
+</body>
+</html>

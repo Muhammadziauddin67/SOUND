@@ -1,0 +1,82 @@
+
+CREATE TABLE genres (
+    genre_id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE languages (
+    language_id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE users (
+    user_id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) UNIQUE NOT NULL,
+    password_hash VARCHAR(255) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
+CREATE TABLE artists (
+    artist_id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    genre_id INT,
+    language_id INT,
+    bio TEXT,
+    image_url VARCHAR(255),
+    FOREIGN KEY (genre_id) REFERENCES genres(genre_id) ON DELETE SET NULL ON UPDATE CASCADE,
+    FOREIGN KEY (language_id) REFERENCES languages(language_id) ON DELETE SET NULL ON UPDATE CASCADE
+);
+
+CREATE TABLE albums (
+    album_id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(100) NOT NULL,
+    artist_id INT,
+    release_year YEAR,
+    cover_image_url VARCHAR(255),
+    description TEXT,
+    FOREIGN KEY (artist_id) REFERENCES artists(artist_id) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE songs (
+    song_id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(100) NOT NULL,
+    artist_id INT,
+    album_id INT,
+    genre_id INT,
+    language_id INT,
+    file_url VARCHAR(255),
+    youtube_id VARCHAR(50),
+    FOREIGN KEY (artist_id) REFERENCES artists(artist_id) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (album_id) REFERENCES albums(album_id) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (genre_id) REFERENCES genres(genre_id) ON DELETE SET NULL ON UPDATE CASCADE,
+    FOREIGN KEY (language_id) REFERENCES languages(language_id) ON DELETE SET NULL ON UPDATE CASCADE
+);
+
+CREATE TABLE ratings (
+    rating_id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,
+    album_id INT,
+    rating INT CHECK (rating BETWEEN 1 AND 5),
+    review TEXT,
+    FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (album_id) REFERENCES albums(album_id) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE followers (
+    follower_id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,
+    artist_id INT,
+    FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (artist_id) REFERENCES artists(artist_id) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE play_history (
+    history_id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,
+    song_id INT,
+    played_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (song_id) REFERENCES songs(song_id) ON DELETE CASCADE ON UPDATE CASCADE
+);

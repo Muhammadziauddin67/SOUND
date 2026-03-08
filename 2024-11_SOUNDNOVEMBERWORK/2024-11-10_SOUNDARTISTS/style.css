@@ -1,0 +1,282 @@
+                      /* ################## style of newSongs start */
+
+/* Reset styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+
+/* Container Styling */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.songheading {
+    color: #444;
+    font-size: 24px;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+/* Songs Grid - Mobile First Approach */
+.songs-grid {
+    display: grid;
+    grid-template-columns: 1fr;  /* One column by default (mobile) */
+    gap: 20px;  /* Space between cards */
+}
+
+/* Song Card Styling */
+.song-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f28b82;
+    border-radius: 8px;
+    padding: 15px; /* Changed padding for consistency */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    height: 80px; /* Set a fixed height for equal boxes */
+    flex-direction: row;
+}
+
+.song-card:hover {
+    transform: scale(1.02);  /* Hover effect */
+}
+
+/* Song Image Styling */
+.song-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+/* Song Info Styling */
+.song-info {
+    flex-grow: 1;
+    text-align: left;
+}
+
+.song-title {
+    font-weight: bold;
+    color: white;
+    margin-bottom: 5px;
+}
+
+.song-subtitle {
+    font-size: 14px;
+    color: #ffe1e1;
+}
+
+/* Play Button */
+.play-button {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.play-button:hover {
+    color: #ffcccc;
+}
+
+/* Responsive Design */
+
+/* Mobile styles */
+@media (max-width: 767px) {
+    h1 {
+        font-size: 20px;  /* Slightly smaller heading on mobile */
+    }
+
+    .song-card {
+        flex-direction: row; /* Keep elements in a row on mobile */
+        align-items: center; /* Center align items */
+        height: 80px; /* Maintain a consistent height */
+    }
+
+    .song-image {
+        margin-right: 15px; /* Adjust margin for better spacing */
+    }
+
+    .song-title {
+        font-size: 16px; /* Slightly larger font size for better readability */
+    }
+
+    .song-subtitle {
+        font-size: 12px; /* Adjust subtitle size for readability */
+    }
+}
+
+/* Tablets and larger screens */
+@media (min-width: 768px) {
+    .songs-grid {
+        grid-template-columns: repeat(2, 1fr); /* Two columns for tablets and larger */
+    }
+
+    .song-card {
+        height: 80px; /* Maintain height on larger screens */
+    }
+}
+
+/* Larger screens (desktops) */
+@media (min-width: 992px) {
+    .songs-grid {
+        grid-template-columns: repeat(2, 1fr); /* Two columns for desktops */
+    }
+}
+
+/* ################## style of newSongs End */
+
+
+
+
+                                          /*history styling Start //
+/* Reset styles */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #e0e0e0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.historyheading {
+    color: #888;
+    font-size: 24px;
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+/* Songs Grid */
+.songs-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Space between the song cards */
+}
+
+/* Song Card Styling */
+.song-card {
+    display: flex;
+    align-items: center;
+    background-color: #f28b82;
+    border-radius: 12px;
+    padding: 10px 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+.song-card:hover {
+    transform: scale(1.02); /* Slight pop-out effect */
+}
+
+/* Song Image */
+.song-image {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 15px;
+    object-fit: cover;
+}
+
+/* Song Info */
+.song-info {
+    flex-grow: 1;
+}
+
+.song-title {
+    font-weight: bold;
+    color: white;
+    margin-bottom: 5px;
+}
+
+.song-subtitle {
+    font-size: 14px;
+    color: #ffe1e1;
+}
+
+/* Play Button */
+.play-button {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: color 0.2s ease;
+}
+
+.play-button:hover {
+    color: #ffcccc;
+}
+
+/* Responsive Design */
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .song-card {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .song-info {
+        margin-right: auto; /* Push play button to the far right */
+    }
+}
+ /*history styling End //
+ */
+
+
+                         /* ################## new Album styling Start */
+
+
+
+     body {
+            background-color: #e0e0e0; /* Light gray background */
+            padding: 20px;
+        }
+
+        .grid-container {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 10px;
+        width: 65%;
+        margin: auto;
+        padding: 20px;
+        justify-items: center; /* Align items horizontally */
+      }
+      
+      .newalbum {
+        background-color: #5e92f3; /* Blue background */
+        height: 120px;
+        width: 150px; /* Adjust width to control box shape */
+        border-radius: 15px; /* Rounded corners */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+        text-align: center;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    }
+
+
+                            /* ################## New Album styling End */

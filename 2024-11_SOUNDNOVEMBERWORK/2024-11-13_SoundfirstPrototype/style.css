@@ -1,0 +1,274 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.music-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #000000; /* Change to your desired color */
+    color: white;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    padding: 5px; /* Add some padding to the music bar */
+}
+#current-song {
+    margin-left: 20px;
+    font-size: 1rem;
+    font-weight: bold; /* Make song title bold */
+    display: block;
+}
+
+.artist-name {
+    margin-left: 20px;
+    font-size: 0.875rem; /* Slightly smaller than the song title */
+    color: #b3b3b3; /* Lighter color for artist name */
+    display: block;
+    font-weight: normal;
+}
+
+#progress-bar {
+    width: 100%;
+    cursor: pointer;
+    background: #a95dff; /* Background color for the track */
+    height: 2px; /* Height of the progress bar */
+    border-radius: 5px; /* Rounded corners */
+    appearance: none; /* Remove default styling */
+    margin: 0; /* Remove margin to align with the music controls */
+}
+
+/* Style the progress bar thumb (dot) */
+#progress-bar::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Remove default styling */
+    appearance: none;
+    width: 15px; /* Width of the thumb */
+    height: 15px; /* Height of the thumb */
+    background: #7100b3; /* Color of the thumb */
+    border-radius: 50%; /* Make it round */
+    cursor: pointer; /* Pointer cursor */
+}
+
+#progress-bar::-moz-range-thumb {
+    width: 15px; /* Width of the thumb */
+    height: 15px; /* Height of the thumb */
+    background: #a300c4; /* Color of the thumb */
+    border-radius: 50%; /* Make it round */
+    cursor: pointer; /* Pointer cursor */
+}
+
+.music-controls {
+    display: flex;
+    align-items: center;
+    padding-top: 5px; /* Space between progress bar and controls */
+}
+
+.control-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin: 0 10px;
+}
+
+#current-song {
+    margin-left: 20px;
+    font-size: 1rem;
+}
+
+.song-image {
+    width: 50px; /* Set the width of the song image */
+    height: 50px; /* Set the height of the song image */
+    margin-right: 10px; /* Space between image and controls */
+    border-radius: 5px; /* Optional: Add rounded corners to the image */
+}
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Black with opacity */
+    justify-content: center;
+    align-items: center;
+    overflow: auto; /* Ensure scroll if the content overflows */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #000000;
+    margin: auto;
+    padding: auto;
+    border: 1px solid #888;
+    width: 80%; /* Set width to fit within window */
+    max-width: 800px; /* Maximum width */
+    height: auto;
+    width:auto ; /* Automatically adjust height */
+    max-height: 90%; /* Ensure it doesn't go off-screen */
+    position: relative;
+    overflow: hidden; /* Prevent content overflow */
+}
+
+/* The Close Button */
+.close {
+    color: #ffffff;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Volume Control */
+.volume-control {
+    display: flex;
+    align-items: center;
+    margin-left: auto; /* Align to the right */
+}
+
+/* General Styling for the Range Track */
+#volume-bar {
+    -webkit-appearance: none; /* Remove default WebKit appearance */
+    -moz-appearance: none; /* Remove default Firefox appearance */
+    appearance: none; /* Remove default styling */
+    width: 100px; /* Width of the volume bar */
+    height: 4px; /* Height of the volume bar */
+    background: #9436ff; /* Background color of the track */
+    border-radius: 5px; /* Rounded corners */
+    outline: none; /* Remove default outline */
+    padding: 0;
+    margin: 0 10px;
+}
+
+/* WebKit Browsers (Chrome, Safari, etc.) */
+#volume-bar::-webkit-slider-runnable-track {
+    background: #9436ff; /* Background color of the track */
+    height: 4px; /* Ensure the height of the track */
+    border-radius: 5px; /* Optional: Add rounded corners */
+}
+
+#volume-bar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none; /* Force appearance to none */
+    width: 10px; /* Width of the thumb */
+    height: 10px; /* Height of the thumb */
+    background: #8c00a8; /* Color of the thumb */
+    border-radius: 50%; /* Make it round */
+    cursor: pointer; /* Pointer cursor */
+    margin-top: -3px; /* Adjust position to align thumb with track */
+}
+
+/* For Firefox */
+#volume-bar::-moz-range-track {
+    background: #9436ff; /* Background color of the track */
+    height: 4px; /* Ensure the height of the track */
+    border-radius: 5px; /* Optional: Add rounded corners */
+}
+
+#volume-bar::-moz-range-thumb {
+    -moz-appearance: none;
+    appearance: none; /* Force appearance to none */
+    width: 10px; /* Width of the thumb */
+    height: 10px; /* Height of the thumb */
+    background: #63009c; /* Color of the thumb */
+    border-radius: 50%; /* Make it round */
+    cursor: pointer; /* Pointer cursor */
+    margin-top: -3px; /* Adjust position to align thumb with track */
+}
+
+/* For Internet Explorer and Edge */
+#volume-bar::-ms-track {
+    width: 100%;
+    height: 4px;
+    background: transparent; /* Remove the default background */
+    border-color: transparent; /* Remove border for consistency */
+    color: transparent; /* Hide the default color */
+}
+
+#volume-bar::-ms-fill-lower {
+    background: #9436ff; /* Color for the lower part of the track */
+    border-radius: 5px; /* Rounded corners */
+}
+
+#volume-bar::-ms-fill-upper {
+    background: #9436ff; /* Color for the upper part of the track */
+    border-radius: 5px; /* Rounded corners */
+}
+
+#volume-bar::-ms-thumb {
+    width: 10px; /* Width of the thumb */
+    height: 10px; /* Height of the thumb */
+    background: #8c00a8; /* Color of the thumb */
+    border-radius: 50%; /* Make it round */
+    cursor: pointer; /* Pointer cursor */
+}
+
+/* Show the music bar on larger screens */
+@media (min-width: 768px) {
+    .music-bar {
+        display: flex;
+        flex-direction: column; /* Change to column layout */
+    }
+}
+
+/* Hide the music bar on smaller screens */
+@media (max-width: 641px) {
+    .music-bar {
+        display: none;
+    }
+    .sidebar{
+        display: none;
+    }
+}
+
+.sidebar {
+    background-color: #343a40; /* Dark background for sidebar */
+    color: white;
+}
+
+.sidebar2 {
+    display: none; /* Hide sidebar2 by default */
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        display: none; /* Hide sidebar1 on small screens */
+    }
+
+    .sidebar2 {
+        display: block; /* Show sidebar2 on small screens */
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background-color: #343a40; /* Same dark background */
+        padding-top: 56px; /* Space for the navbar */
+        z-index: 1000; /* Ensure it appears above other content */
+    }
+
+    .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1001; /* Above sidebar2 */
+    }
+
+    .navbar-nav {
+        flex-direction: row; /* Horizontal layout for navbar items */
+        justify-content: flex-end; /* Align items to the right */
+    }
+}
