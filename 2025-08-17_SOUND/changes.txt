@@ -1,0 +1,40 @@
+changes need to be made to sql database such as:
+in follow artits ref old db
+in albums ref old db
+
+fix errors in console 
+on history
+on artits (style as well)
+on albums (style as well)
+on genre (style as well)
+on all languages pages (style as well)
+on album ratings
+on follow artits
+on history
+on playlist details page
+on home
+
+Full style fixing on all pages as well as:
+dark mode/light mode
+meaning serach bar 
+music bar 
+song bar
+albums
+mobile mode
+lowest aspect retio of screen serving shall be 300px
+
+
+full page fixing logic:
+genre
+playlist details
+home
+follow artits
+
+imporvements/enhacements:
+music volume syncing across different songs
+music continuous playing across different pages
+fixing search bar across different pages
+improving code via having different moduls such as navbar.php and having include(navbar.php) in file that need it
+ajax for music
+having a toggle to bring up music bar on mobile devices
+

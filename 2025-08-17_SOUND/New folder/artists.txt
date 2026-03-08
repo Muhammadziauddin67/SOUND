@@ -1,0 +1,32 @@
+
+
+ENGLISH-ARTISTS:
+1.AJR
+2.IMAGINE DRAGONS
+11.BOYWITHUKE
+
+
+JAPANESE-ARTISTS:
+4.EVE
+5.FUJII KAZE
+6.ADO
+
+HINDI-ARTISTS:
+1.ARJIT SINGH
+2.Tulsi Kumar
+3.Armaan Malik
+
+URDU-ARTISTS:
+1.ATIF ASLAM
+2.Young Stunners
+3.Umair
+
+SPANISH-ARTISTS:
+1.Monsieur Periné
+2.Luis Fonsi
+3.J Balvin
+
+GERMAN-ARTISTS:
+1.PRINZ PI
+2.Andreas Bourani
+3.AnnenMaykantereit
